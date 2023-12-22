@@ -1,2 +1,2 @@
 # Whatsapp-Stage-Bot
-Utilizando o modulo `whatsapp-web.js` do nodejs esse bot cria e executa estagios de conversas, podendo assim fazer um funil de conversa passando de etapa por etapa
+Using Node.js' whatsapp-web.js module enables the creation of a bot for WhatsApp that manages conversations in sequential stages, working like a dialogue funnel to guide the user in an organized and objective way.
