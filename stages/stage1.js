@@ -9,4 +9,4 @@ const result = async(user, msg) => {
         return "Voce foi tranferido para o stagio 2"
     }}
 
-module.exports = result
+module.exports = { result }
