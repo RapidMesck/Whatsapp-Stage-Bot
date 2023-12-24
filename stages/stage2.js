@@ -10,4 +10,4 @@ const result = async(user, msg) => {
     }
 }
 
-module.exports = result
+module.exports = { result }
