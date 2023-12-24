@@ -76,14 +76,16 @@ const updateUserLastMessage = (userNumber, message) => {
 };
 
 const getUsersNotUpdatedIn30Minutes = async () => {
-    const query = `
-        SELECT * 
-        FROM users 
-        WHERE last_update < CONVERT_TZ(NOW() - INTERVAL 30 MINUTE, @@session.time_zone, 'America/Sao_Paulo')
-    `;
-
-    const [users] = await db.execute(query);
-    return users;
+    return new Promise((resolve, reject) => {
+        pool.query(`SELECT * FROM users WHERE last_update < NOW() - INTERVAL 30 MINUTE AND status IS NOT NULL`, (error, results) => {
+            if (error) {
+                reject(error);
+            } else {
+                console.log(results)
+                resolve(results);
+            }
+        });
+    });
 };
 
 module.exports = { insertUser, checkInsertedUser, getUserStatus, getUserLastUpdate, updateUserStatus, updateUserLastMessage, getUsersNotUpdatedIn30Minutes }
